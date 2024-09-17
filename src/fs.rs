@@ -143,6 +143,7 @@ impl<Storage: driver::Storage> Allocation<Storage> {
             block_cycles,
             cache_size,
             lookahead_size,
+            compact_thresh: 0,
 
             read_buffer: core::ptr::null_mut(),
             prog_buffer: core::ptr::null_mut(),
@@ -151,6 +152,9 @@ impl<Storage: driver::Storage> Allocation<Storage> {
             name_max: filename_max_plus_one.wrapping_sub(1),
             file_max,
             attr_max,
+
+            metadata_max: 0,
+            inline_max: 0,
         };
 
         Self {
