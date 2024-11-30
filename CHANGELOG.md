@@ -7,12 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+-
+
+## [v0.5.0](https://github.com/trussed-dev/littlefs2/releases/tag/0.5.0) - 2024-10-25
+
+This release contains many small changes to the public API.  It also introduces the
+`littlefs2-core` crate that can be used for crates that want to access `littlefs2`
+filesystems without depending on a specific implementation version.
+
 ### Added
 - Added object-safe traits `DynFile`, `DynFilesystem` and `DynStorage` for
   accessing `Storage`, `Filesystem` and `File` implementations for any storage.
 - Added `Filesystem::mount_or_else` function ([#57][])
 - Marked `Path::is_empty`, `Path::from_bytes_with_nul`, `Path::from_cstr`, `Path::from_cstr_unchecked`, `Path::as_str_ref_with_trailing_nul`, `Path::as_str`, and `PathBuf::new` as `const`.
 - Made `fs::FileOpenFlags` public and added `From<fs::FileOpenFlags>` for `fs::OpenOptions`.
+- Support platforms where `c_int` is not `i32`.
 
 ### Fixed
 
